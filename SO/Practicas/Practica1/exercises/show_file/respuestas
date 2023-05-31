@@ -1,0 +1,3 @@
+gcc -c show_file.c
+gcc show_file.o
+gcc show_file.c

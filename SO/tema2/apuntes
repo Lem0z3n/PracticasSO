@@ -1,0 +1,12 @@
+SISTEMA DE FICHEROS
+
+servicios POSIXS 
+
+ la informacion sobre los archivos se representa en 3 digitos OCTALES
+ rwx read write y executable 
+ tambien se divide esta informacion para: su propietario, el grupo y todos
+
+ el valor de x para directorios no tiene mucho sentido que sea 1 (ejecutable) 
+ pero se usa para la navegacion entre directorios
+
+

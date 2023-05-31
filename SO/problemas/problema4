@@ -1,0 +1,20 @@
+a) 
+
+punto A: 
+	.Texto (Código) 1 página(3.5Kb)
+	.Pila 128 B + 4B *6 + 8B *2 < 4Kb => 1 página
+	.Datos no inicializados: 8B => 1 página
+	.Datos inicializados: 2 páginas (2048 * 4B(int) = 8Kb)
+punto B:
+	igual que A
+
+punto C: Igual que B +  .Datos Biblioteca: 1 página (1,3KB)
+			.Texto Biblioteca: 1 página (2,7KB)
+punto D: Igual que C +  .Montículo: 2 páginas
+punto E: Igual que D + 	2 pilas de hilos 1 página cada una
+punto F: Igual que D
+punto G: Igual que D
+
+b)
+- Antes del punto A sólo se ha tocado el Texto, y la Pila, las regiones de datos inicializados y no inicializados no se tocan. Por lo que al acceder al array se produce un fallo de página, 2 al ser tan grande.
+-Antes del punto F se producen los Joins de los hilos que tocan el array B por lo que no se producen fallos de página.

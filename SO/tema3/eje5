@@ -1,0 +1,41 @@
+Problema 5 
+
+	consideraciones:
+		1. Cada Pk es un nombre de un ejecutable
+		2. Existe un proceso P0, que es el master
+			-Creacion de procesos considerando restricciones del grafo
+		3. Uso de notación simplificada
+
+
+
+	Padre		| Hijo(s)
+------------------------------------------------------
+	pId, P1 = fork() =>> exec("P1") ==>> pid P1 = fork();
+		|			     if(pidP1 == 0){
+		|			      execlp("p1","p1", NULL);
+	    wait(pidP1)				      exit(1);}
+				              waitpid(pidP1, NULL, 0);
+
+
+
+
+
+
+MAIN DE P0(padre) | Hijos
+---------------------------
+pidP1 = fork()    | exec("P1")
+  |		  |
+waitpid(pidP1)    |
+pidP2 = fork()    | exec("P2")
+ |		  |
+pidP5 = fork()    | exec("P5")
+pidP7 = fork()	  | exec("P7")
+wait(pidP2)
+pidP3 = fork()    | exec("P3")
+pidP4 = fork()    | exec("P4")
+pidP6 = fork()    | exec("P6")
+waitpid(P3)       |
+waitpid(P6)       |
+waitpid(P7)       |
+pid P8 = fork()   |
+waitpid(P8)	  | exec("P8")
